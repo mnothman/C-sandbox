@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace TaskManagerSandbox.Models;
 
@@ -11,6 +12,11 @@ public class User
     [StringLength(100)]
     public string Username { get; set; } = string.Empty;
     
+    [Required]
+    [JsonIgnore]
+    [StringLength(100)]
+    public string PasswordHash { get; set; } = string.Empty;
+
     [Required]
     [StringLength(100)]
     [EmailAddress]
